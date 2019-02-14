@@ -1,0 +1,47 @@
+---
+title: "Course Project: Shiny Application and Reproducible Pitch"
+author: "Anna Teresa G. Aguilar"
+date: "February 10, 2019"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+This presentation is submitted in partial fulfillment to the requirements for Developing Data Product Course offered by JHU
+
+The Shiny application being pitched in this project can be accessed through : https://annaaguilar.shinyapps.io/CourseProject
+
+The ui.R and server.R for the application can be accessed at: https://github.com/atgaguilar/Coursera-Developing-Data-Products
+
+
+
+## Shiny App
+
+The Shiny app process the 2017 Monthly Passenger Traffic per station of the Philippine National Railways (PNR)
+
+The dataset is from Open Data Philippines (data.gov.ph)
+
+In this application, average passenger traffic per month will be computed and will display a barplot of the passenger traffic for the month. 
+
+## Example: 
+
+Using dataset, Average passenger traffic for January may be computed and results will be as follow: 
+
+```{r example, warning=FALSE}
+library(plotly)
+
+dataset<-read.csv("pnr_monthlypassengersperstation2017.csv", sep=",", header=T)
+
+    average <-  mean(dataset[["January"]])
+    plot_ly(data=dataset, x=dataset$Station, y=dataset$January,  type="bar") %>% 
+      layout(title="Passenger Traffic" , xaxis=list(title="Station"), yaxis=list(title="Number of Passengers"))
+```
+
+
+# Thank you
+
+
